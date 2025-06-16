@@ -1,4 +1,4 @@
-import { IsUnionInclude, IsStringLiteralUnion } from '../@types';
+import { IsStringLiteralUnion, IsUnionInclude } from '@pdg/types';
 type FinalTypeWithEmptyString<T1, T2> = T1 extends null | undefined ? Extract<T1, null | undefined> | T2 : T1 extends string ? '' | T2 : T1 extends any[] ? Exclude<T1, []> : T1 extends object ? T1 : Extract<T1, '' | null | undefined> | T2;
 type FinalType<T1, T2> = T1 extends null | undefined ? Extract<T1, null | undefined> | T2 : T1 extends string ? IsStringLiteralUnion<T1> extends true ? T2 : T1 | T2 : T1 extends object ? T1 | T2 : Extract<T1, null | undefined> | T2;
 /********************************************************************************************************************

@@ -1,4 +1,4 @@
-import { IsUnionInclude } from '../@types';
+import { IsUnionInclude } from '@pdg/types';
 declare const SecretSymbol: unique symbol;
 type T<Type> = Type & {
     [SecretSymbol]: any;

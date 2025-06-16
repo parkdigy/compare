@@ -1,7 +1,7 @@
 {
   "name": "@pdg/compare",
   "title": "Typescript Comparison Module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "API Module",
   "type": "module",
   "types": "dist/index.d.ts",
@@ -39,6 +39,7 @@
   ],
   "devDependencies": {
     "@eslint/js": "^9.28.0",
+    "@pdg/types": "^1.0.0",
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@types/jest": "^29.5.14",

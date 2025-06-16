@@ -1,4 +1,4 @@
-import { IsUnionInclude } from '../@types';
+import { IsUnionInclude } from '@pdg/types';
 import isEmpty from './isEmpty';
 
 const SecretSymbol = Symbol('');

@@ -1,4 +1,4 @@
-import { IsUnionInclude } from '../@types';
+import { IsUnionInclude } from '@pdg/types';
 /********************************************************************************************************************
  * 값이 null 또는 undefined 인 경우 대체 값을 반환하는 함수
  * @param v 확인할 값
