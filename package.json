@@ -1,7 +1,7 @@
 {
   "name": "@pdg/compare",
   "title": "Typescript Comparison Module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "API Module",
   "type": "module",
   "types": "dist/index.d.ts",

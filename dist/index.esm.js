@@ -212,7 +212,7 @@ function isPersonalNo(v) {
  * @returns 전화번호 형식이면 true, 그렇지 않으면 false 반환
  * ******************************************************************************************************************/
 function isTelNo(v) {
-    return /(^([0-9]{2,3})([0-9]{3,4})([0-9]{4})$)|(^([0-9]{2,3})-([0-9]{3,4})-([0-9]{4})$)|(^([0-9]{4})-([0-9]{4})$)|(^([0-9]{8})$)|(^\+(?:[-]?[0-9]){8,}$)/.test(v);
+    return /(^([0-9]{2,3})([0-9]{3,4})([0-9]{4})$)|(^([0-9]{2,3})-([0-9]{3,4})-([0-9]{4})$)|(^([0-9]{4})-([0-9]{4})$)|(^\+(?:[-]?[0-9]){8,}$)|(^1[0-9]{7}$)/.test(v);
 }function isUrl(v, allowProtocolsOrInnerUrl, allowInnerUrl) {
     var finalAllowProtocols = Array.isArray(allowProtocolsOrInnerUrl) ? allowProtocolsOrInnerUrl : undefined;
     var finalAllowInnerUrl = typeof allowProtocolsOrInnerUrl === 'boolean' ? allowProtocolsOrInnerUrl : allowInnerUrl;

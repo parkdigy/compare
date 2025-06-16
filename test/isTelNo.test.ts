@@ -17,6 +17,8 @@ describe('isTelNo', () => {
     expect(isTelNo('+82212345678')).toBe(true);
     expect(isTelNo('+82-2-1234-5678')).toBe(true);
 
+    expect(isTelNo('0212345')).toBe(false);
+    expect(isTelNo('02123456')).toBe(false);
     expect(isTelNo('03-134-578')).toBe(false);
     expect(isTelNo('010-12345')).toBe(false);
     expect(isTelNo('01012-345')).toBe(false);
