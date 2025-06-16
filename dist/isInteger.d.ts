@@ -4,3 +4,4 @@
  * @returns 숫자가 Integer 면 true, 그렇지 않으면 false 반환
  * ******************************************************************************************************************/
 export declare function isInteger(v: number): boolean;
+export default isInteger;

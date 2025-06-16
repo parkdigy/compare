@@ -4,7 +4,7 @@
  * @param v2 비교할 두 번째 값
  * @returns 두 값이 동일한지 여부
  * ******************************************************************************************************************/
-export function equal(v1: unknown, v2: unknown): boolean {
+function isEqual(v1: unknown, v2: unknown): boolean {
   if (v1 === v2) return true;
   if (typeof v1 !== typeof v2) return false;
   if (v1 == null || v2 == null) return false;
@@ -18,4 +18,8 @@ export function equal(v1: unknown, v2: unknown): boolean {
   }
 }
 
-export default equal;
+const equal = isEqual;
+
+export { isEqual, equal };
+
+export default isEqual;

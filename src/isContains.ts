@@ -6,8 +6,12 @@ type Value = string | number | boolean | null | undefined | bigint;
  * @param value 확인할 값
  * @returns 포함 여부
  * ******************************************************************************************************************/
-export function contains<T extends Value, List extends ReadonlyArray<T>>(list: List, value: T): value is List[number] {
+function isContains<T extends Value, List extends ReadonlyArray<T>>(list: List, value: T): value is List[number] {
   return list.includes(value);
 }
 
-export default contains;
+const contains = isContains;
+
+export { isContains, contains };
+
+export default isContains;

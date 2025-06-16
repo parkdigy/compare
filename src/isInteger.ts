@@ -6,3 +6,5 @@
 export function isInteger(v: number): boolean {
   return Number.isInteger(v);
 }
+
+export default isInteger;

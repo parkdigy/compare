@@ -133,20 +133,35 @@ function isNotNullAndUndefined(v) {
 function ifNotNullAndUndefined(v, v2) {
     return v != null ? v2 : v;
 }/********************************************************************************************************************
+ * 사업자번호 형식인지 확인하는 함수
+ * @param v 확인할 값
+ * @returns 사업자번호 형식이면 true, 그렇지 않으면 false 반환
+ * ******************************************************************************************************************/
+function isBusinessNo(v) {
+    return /(([0-9]{3})([0-9]{2})([0-9]{5}))|(([0-9]{3})-([0-9]{2})-([0-9]{5}))/.test(v);
+}/********************************************************************************************************************
  * 배열에 특정 값이 포함되어 있는지 확인하는 함수
  * @param list 확인할 배열
  * @param value 확인할 값
  * @returns 포함 여부
  * ******************************************************************************************************************/
-function contains(list, value) {
+function isContains(list, value) {
     return list.includes(value);
+}
+var contains = isContains;/********************************************************************************************************************
+ * 이메일 형식인지 확인하는 함수
+ * @param v 확인할 값
+ * @returns 이메일 형식이면 true, 그렇지 않으면 false 반환
+ * ******************************************************************************************************************/
+function isEmail(v) {
+    return new RegExp(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/, 'g').test(v);
 }/********************************************************************************************************************
  * 두 값이 동일한지 확인하는 함수
  * @param v1 비교할 첫 번째 값
  * @param v2 비교할 두 번째 값
  * @returns 두 값이 동일한지 여부
  * ******************************************************************************************************************/
-function equal(v1, v2) {
+function isEqual(v1, v2) {
     if (v1 === v2)
         return true;
     if (typeof v1 !== typeof v2)
@@ -160,21 +175,8 @@ function equal(v1, v2) {
     else {
         return v1 === v2;
     }
-}/********************************************************************************************************************
- * 사업자번호 형식인지 확인하는 함수
- * @param v 확인할 값
- * @returns 사업자번호 형식이면 true, 그렇지 않으면 false 반환
- * ******************************************************************************************************************/
-function isBusinessNo(v) {
-    return /(([0-9]{3})([0-9]{2})([0-9]{5}))|(([0-9]{3})-([0-9]{2})-([0-9]{5}))/.test(v);
-}/********************************************************************************************************************
- * 이메일 형식인지 확인하는 함수
- * @param v 확인할 값
- * @returns 이메일 형식이면 true, 그렇지 않으면 false 반환
- * ******************************************************************************************************************/
-function isEmail(v) {
-    return new RegExp(/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/, 'g').test(v);
-}/********************************************************************************************************************
+}
+var equal = isEqual;/********************************************************************************************************************
  * 숫자가 Integer 인지 확인하는 함수
  * @param v 확인할 값
  * @returns 숫자가 Integer 면 true, 그렇지 않으면 false 반환
@@ -222,4 +224,35 @@ function isTelNo(v) {
     var fullUrlPattern = new RegExp("^(?:(".concat(protocolPattern, "):\\/\\/)?[\\w.-]+(?:\\.[\\w.-]+)+[\\w\\-._~:/?#\\[\\]@!$&'%()*+,;=.]*$"));
     var innerUrlPattern = new RegExp("^((?:(".concat(protocolPattern, "):\\/\\/)?[\\w.-]+(?:\\.[\\w.-]+)|\\/)+[\\w\\-._~:/?#\\[\\]@!$&'%()*+,;=.]*$"));
     return finalAllowInnerUrl ? innerUrlPattern.test(v) : fullUrlPattern.test(v);
-}export{contains,empty,equal,ifEmpty,ifNotEmpty,ifNotNull,ifNotNullAndUndefined,ifNotUndefined,ifNull,ifNullOrUndefined,ifUndefined,isBusinessNo,isEmail,isEmpty,isInteger,isMobileNo,isNotEmpty,isNotNull,isNotNullAndUndefined,isNotUndefined,isNull,isNullOrUndefined,isNumericText,isPersonalNo,isTelNo,isUndefined,isUrl,notEmpty};
+}var index = {
+    ifEmpty: ifEmpty,
+    ifNotEmpty: ifNotEmpty,
+    isEmpty: isEmpty,
+    isNotEmpty: isNotEmpty,
+    empty: empty,
+    notEmpty: notEmpty,
+    ifNotNull: ifNotNull,
+    ifNull: ifNull,
+    isNotNull: isNotNull,
+    isNull: isNull,
+    ifNotUndefined: ifNotUndefined,
+    ifUndefined: ifUndefined,
+    isNotUndefined: isNotUndefined,
+    isUndefined: isUndefined,
+    ifNotNullAndUndefined: ifNotNullAndUndefined,
+    ifNullOrUndefined: ifNullOrUndefined,
+    isNotNullAndUndefined: isNotNullAndUndefined,
+    isNullOrUndefined: isNullOrUndefined,
+    isContains: isContains,
+    contains: contains,
+    isEqual: isEqual,
+    equal: equal,
+    isBusinessNo: isBusinessNo,
+    isEmail: isEmail,
+    isInteger: isInteger,
+    isMobileNo: isMobileNo,
+    isNumericText: isNumericText,
+    isPersonalNo: isPersonalNo,
+    isTelNo: isTelNo,
+    isUrl: isUrl,
+};export{contains,index as default,empty,equal,ifEmpty,ifNotEmpty,ifNotNull,ifNotNullAndUndefined,ifNotUndefined,ifNull,ifNullOrUndefined,ifUndefined,isBusinessNo,isContains,isEmail,isEmpty,isEqual,isInteger,isMobileNo,isNotEmpty,isNotNull,isNotNullAndUndefined,isNotUndefined,isNull,isNullOrUndefined,isNumericText,isPersonalNo,isTelNo,isUndefined,isUrl,notEmpty};
