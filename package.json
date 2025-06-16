@@ -1,6 +1,6 @@
 {
-  "name": "npm-template",
-  "title": "NPM Template Module",
+  "name": "@pdg/compare",
+  "title": "Typescript Comparison Module",
   "version": "1.0.0",
   "description": "API Module",
   "type": "module",
@@ -9,13 +9,13 @@
   "module": "dist/index.esm.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/parkdigy/npm-template.git",
-    "baseUrl": "https://github.com/parkdigy/npm-template"
+    "url": "git+https://github.com/parkdigy/compare.git",
+    "baseUrl": "https://github.com/parkdigy/compare"
   },
   "bugs": {
-    "url": "https://github.com/parkdigy/npm-template/issues"
+    "url": "https://github.com/parkdigy/compare/issues"
   },
-  "homepage": "https://github.com/parkdigy/npm-template#readme",
+  "homepage": "https://github.com/parkdigy/compare#readme",
   "files": [
     "dist",
     "README.md"
@@ -32,7 +32,8 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "keywords": [
-    "util",
+    "compare",
+    "comparison",
     "typescript",
     "javascript"
   ],
