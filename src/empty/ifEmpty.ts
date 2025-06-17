@@ -1,5 +1,5 @@
-import { IsStringLiteralUnion, IsUnionInclude } from '@pdg/types';
 import { empty } from './isEmpty';
+import { IsStringLiteralUnion, IsUnionInclude } from '../_types';
 
 type FinalType<T1, T2> = T1 extends string
   ? IsStringLiteralUnion<T1> extends true
