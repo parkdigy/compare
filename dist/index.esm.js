@@ -11,10 +11,14 @@ function isEmpty(v) {
         return v === '';
     if (Array.isArray(v))
         return v.length === 0;
+    if (v instanceof Date)
+        return isNaN(v.getTime());
+    if (v instanceof Map || v instanceof Set)
+        return v.size === 0;
+    if (v instanceof RegExp)
+        return false;
     if (typeof v === 'object')
-        return (Object.getOwnPropertySymbols(v).length === 0 &&
-            JSON.stringify(v) === '{}' &&
-            JSON.stringify(Object.entries(v)) === '[]');
+        return Reflect.ownKeys(v).length === 0;
     return false;
 }
 var empty = isEmpty;/********************************************************************************************************************
@@ -169,8 +173,13 @@ function isEqual(v1, v2) {
     if (v1 == null || v2 == null)
         return false;
     if (typeof v1 === 'object' && typeof v2 === 'object') {
-        return (JSON.stringify(v1) === JSON.stringify(v2) &&
-            JSON.stringify(Object.entries(v1)) === JSON.stringify(Object.entries(v2)));
+        try {
+            return (JSON.stringify(v1) === JSON.stringify(v2) &&
+                JSON.stringify(Object.entries(v1)) === JSON.stringify(Object.entries(v2)));
+        }
+        catch (_a) {
+            return false;
+        }
     }
     else {
         return v1 === v2;

@@ -21,12 +21,10 @@ function isEmpty<T>(v: T): v is IsUnionInclude<T, ''> extends true ? FinalTypeWi
   if (v == null) return true;
   if (typeof v === 'string') return v === '';
   if (Array.isArray(v)) return v.length === 0;
-  if (typeof v === 'object')
-    return (
-      Object.getOwnPropertySymbols(v).length === 0 &&
-      JSON.stringify(v) === '{}' &&
-      JSON.stringify(Object.entries(v)) === '[]'
-    );
+  if (v instanceof Date) return isNaN(v.getTime());
+  if (v instanceof Map || v instanceof Set) return v.size === 0;
+  if (v instanceof RegExp) return false;
+  if (typeof v === 'object') return Reflect.ownKeys(v).length === 0;
   return false;
 }
 

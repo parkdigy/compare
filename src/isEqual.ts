@@ -9,10 +9,14 @@ function isEqual(v1: unknown, v2: unknown): boolean {
   if (typeof v1 !== typeof v2) return false;
   if (v1 == null || v2 == null) return false;
   if (typeof v1 === 'object' && typeof v2 === 'object') {
-    return (
-      JSON.stringify(v1) === JSON.stringify(v2) &&
-      JSON.stringify(Object.entries(v1)) === JSON.stringify(Object.entries(v2))
-    );
+    try {
+      return (
+        JSON.stringify(v1) === JSON.stringify(v2) &&
+        JSON.stringify(Object.entries(v1)) === JSON.stringify(Object.entries(v2))
+      );
+    } catch {
+      return false;
+    }
   } else {
     return v1 === v2;
   }
