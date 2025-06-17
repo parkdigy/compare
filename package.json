@@ -1,8 +1,8 @@
 {
   "name": "@pdg/compare",
   "title": "Typescript Comparison Module",
-  "version": "1.0.3",
-  "description": "API Module",
+  "description": "Typescript Comparison Module",
+  "version": "1.0.4",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
