@@ -21,7 +21,7 @@ function isEmpty(v) {
         return Reflect.ownKeys(v).length === 0;
     return false;
 }
-var empty = isEmpty;/********************************************************************************************************************
+const empty = isEmpty;/********************************************************************************************************************
  * 값이 비어있는 경우 대체 값을 반환하는 함수
  * @param v 확인할 값
  * @param v2 대체 값
@@ -38,7 +38,7 @@ function ifEmpty(v, v2) {
 function isNotEmpty(v) {
     return !isEmpty(v);
 }
-var notEmpty = isNotEmpty;/********************************************************************************************************************
+const notEmpty = isNotEmpty;/********************************************************************************************************************
  * 값이 비어있지 않은 경우 대체 값을 반환하는 함수
  * @param v 확인할 값
  * @param v2 대체 값
@@ -152,7 +152,7 @@ function isBusinessNo(v) {
 function isContains(list, value) {
     return list.includes(value);
 }
-var contains = isContains;/********************************************************************************************************************
+const contains = isContains;/********************************************************************************************************************
  * 이메일 형식인지 확인하는 함수
  * @param v 확인할 값
  * @returns 이메일 형식이면 true, 그렇지 않으면 false 반환
@@ -185,7 +185,7 @@ function isEqual(v1, v2) {
         return v1 === v2;
     }
 }
-var equal = isEqual;/********************************************************************************************************************
+const equal = isEqual;/********************************************************************************************************************
  * 숫자가 Integer 인지 확인하는 함수
  * @param v 확인할 값
  * @returns 숫자가 Integer 면 true, 그렇지 않으면 false 반환
@@ -205,8 +205,7 @@ function isMobileNo(v) {
  * @param allowComma 콤마(,)를 허용할지 여부 (기본값: false)
  * @returns 숫자만 포함되어 있으면 true, 그렇지 않으면 false 반환
  * ******************************************************************************************************************/
-function isNumericText(v, allowComma) {
-    if (allowComma === void 0) { allowComma = false; }
+function isNumericText(v, allowComma = false) {
     return (allowComma ? /^[+-]?([0-9]+([.,][0-9]+)?|[.,][0-9]+)$/ : /^[+-]?([0-9]+([.][0-9]+)?|[.][0-9]+)$/).test(v);
 }/********************************************************************************************************************
  * 주민등록번호 형식인지 확인하는 함수
@@ -223,45 +222,45 @@ function isPersonalNo(v) {
 function isTelNo(v) {
     return /(^([0-9]{2,3})([0-9]{3,4})([0-9]{4})$)|(^([0-9]{2,3})-([0-9]{3,4})-([0-9]{4})$)|(^([0-9]{4})-([0-9]{4})$)|(^\+(?:[-]?[0-9]){8,}$)|(^1[0-9]{7}$)/.test(v);
 }function isUrl(v, allowProtocolsOrInnerUrl, allowInnerUrl) {
-    var finalAllowProtocols = Array.isArray(allowProtocolsOrInnerUrl) ? allowProtocolsOrInnerUrl : undefined;
-    var finalAllowInnerUrl = typeof allowProtocolsOrInnerUrl === 'boolean' ? allowProtocolsOrInnerUrl : allowInnerUrl;
+    const finalAllowProtocols = Array.isArray(allowProtocolsOrInnerUrl) ? allowProtocolsOrInnerUrl : undefined;
+    const finalAllowInnerUrl = typeof allowProtocolsOrInnerUrl === 'boolean' ? allowProtocolsOrInnerUrl : allowInnerUrl;
     // 기본 허용 프로토콜
-    var baseProtocols = ['http', 'https'];
+    const baseProtocols = ['http', 'https'];
     // 최종 프로토콜 목록 구성
-    var protocols = finalAllowProtocols ? finalAllowProtocols : baseProtocols;
-    var protocolPattern = protocols.map(function (p) { return p.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&'); }).join('|'); // 정규식 escape
-    var fullUrlPattern = new RegExp("^(?:(".concat(protocolPattern, "):\\/\\/)?[\\w.-]+(?:\\.[\\w.-]+)+[\\w\\-._~:/?#\\[\\]@!$&'%()*+,;=.]*$"));
-    var innerUrlPattern = new RegExp("^((?:(".concat(protocolPattern, "):\\/\\/)?[\\w.-]+(?:\\.[\\w.-]+)|\\/)+[\\w\\-._~:/?#\\[\\]@!$&'%()*+,;=.]*$"));
+    const protocols = finalAllowProtocols ? finalAllowProtocols : baseProtocols;
+    const protocolPattern = protocols.map((p) => p.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')).join('|'); // 정규식 escape
+    const fullUrlPattern = new RegExp(`^(?:(${protocolPattern}):\\/\\/)?[\\w.-]+(?:\\.[\\w.-]+)+[\\w\\-._~:/?#\\[\\]@!$&'%()*+,;=.]*$`);
+    const innerUrlPattern = new RegExp(`^((?:(${protocolPattern}):\\/\\/)?[\\w.-]+(?:\\.[\\w.-]+)|\\/)+[\\w\\-._~:/?#\\[\\]@!$&'%()*+,;=.]*$`);
     return finalAllowInnerUrl ? innerUrlPattern.test(v) : fullUrlPattern.test(v);
 }var index = {
-    ifEmpty: ifEmpty,
-    ifNotEmpty: ifNotEmpty,
-    isEmpty: isEmpty,
-    isNotEmpty: isNotEmpty,
-    empty: empty,
-    notEmpty: notEmpty,
-    ifNotNull: ifNotNull,
-    ifNull: ifNull,
-    isNotNull: isNotNull,
-    isNull: isNull,
-    ifNotUndefined: ifNotUndefined,
-    ifUndefined: ifUndefined,
-    isNotUndefined: isNotUndefined,
-    isUndefined: isUndefined,
-    ifNotNullAndUndefined: ifNotNullAndUndefined,
-    ifNullOrUndefined: ifNullOrUndefined,
-    isNotNullAndUndefined: isNotNullAndUndefined,
-    isNullOrUndefined: isNullOrUndefined,
-    isContains: isContains,
-    contains: contains,
-    isEqual: isEqual,
-    equal: equal,
-    isBusinessNo: isBusinessNo,
-    isEmail: isEmail,
-    isInteger: isInteger,
-    isMobileNo: isMobileNo,
-    isNumericText: isNumericText,
-    isPersonalNo: isPersonalNo,
-    isTelNo: isTelNo,
-    isUrl: isUrl,
+    ifEmpty,
+    ifNotEmpty,
+    isEmpty,
+    isNotEmpty,
+    empty,
+    notEmpty,
+    ifNotNull,
+    ifNull,
+    isNotNull,
+    isNull,
+    ifNotUndefined,
+    ifUndefined,
+    isNotUndefined,
+    isUndefined,
+    ifNotNullAndUndefined,
+    ifNullOrUndefined,
+    isNotNullAndUndefined,
+    isNullOrUndefined,
+    isContains,
+    contains,
+    isEqual,
+    equal,
+    isBusinessNo,
+    isEmail,
+    isInteger,
+    isMobileNo,
+    isNumericText,
+    isPersonalNo,
+    isTelNo,
+    isUrl,
 };export{contains,index as default,empty,equal,ifEmpty,ifNotEmpty,ifNotNull,ifNotNullAndUndefined,ifNotUndefined,ifNull,ifNullOrUndefined,ifUndefined,isBusinessNo,isContains,isEmail,isEmpty,isEqual,isInteger,isMobileNo,isNotEmpty,isNotNull,isNotNullAndUndefined,isNotUndefined,isNull,isNullOrUndefined,isNumericText,isPersonalNo,isTelNo,isUndefined,isUrl,notEmpty};
