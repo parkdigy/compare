@@ -1,4 +1,4 @@
-import { IsStringLiteralUnion, IsUnionInclude } from '../_types';
+import { type IsStringLiteralUnion, type IsUnionInclude } from '../_types';
 type FinalType<T1, T2> = T1 extends string ? IsStringLiteralUnion<T1> extends true ? T1 : T1 | T2 : T1 extends object ? T1 | T2 : Exclude<T1, null | undefined>;
 /********************************************************************************************************************
  * 값이 비어있는 경우 대체 값을 반환하는 함수

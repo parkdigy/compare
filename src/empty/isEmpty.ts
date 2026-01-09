@@ -1,4 +1,4 @@
-import { IsUnionInclude } from '../_types';
+import { type IsUnionInclude } from '../_types';
 
 const SecretSymbol = Symbol('');
 type T<Type> = Type & { [SecretSymbol]: any };

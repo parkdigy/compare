@@ -2,7 +2,7 @@
   "name": "@pdg/compare",
   "title": "Typescript Comparison Module",
   "description": "Typescript Comparison Module",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
